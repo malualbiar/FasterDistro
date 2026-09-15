@@ -1,2 +1,361 @@
-# FasterDistro
-Chrome extension for auto filling Distrokid forms
+# Faster Distro
+
+**Faster Distro** is a Chrome extension designed to make uploading music to **DistroKid** faster and easier by automatically filling commonly used fields in DistroKid release forms.
+
+The extension is intended to reduce repetitive typing and make the music distribution workflow more efficient for artists, producers, and music managers.
+
+---
+
+## Features
+
+* Automatically fill DistroKid release forms
+* Save commonly used artist and release information
+* Reduce repetitive typing during uploads
+* Automatically populate supported form fields
+* Works directly inside the Chrome browser
+* Runs locally as a browser extension
+* Easy to install using Chrome Developer Mode
+
+---
+
+##  Project Structure
+
+```text
+Faster-Distro/
+│
+├── manifest.json
+├── popup.html
+├── popup.js
+├── popup.css
+│
+├── content.js
+│
+├── icons/
+│   ├── icon16.png
+│   ├── icon48.png
+│   └── icon128.png
+│
+└── README.md
+```
+
+The exact structure may vary depending on the version of the project.
+
+---
+
+# Installation
+
+Since Faster Distro is currently installed as an **unpacked Chrome extension**, you need to enable Chrome's Developer Mode.
+
+## Step 1 — Download the Project
+
+Download or clone the Faster Distro project to your computer.
+
+If you are using Git:
+
+```bash
+git clone https://github.com/your-username/Faster-Distro.git
+```
+
+Then open the project folder.
+
+---
+
+## Step 2 — Open Chrome Extensions
+
+Open Google Chrome.
+
+In the address bar, enter:
+
+```text
+chrome://extensions/
+```
+
+and press **Enter**.
+
+You will be taken to the Chrome Extensions management page.
+
+---
+
+## Step 3 — Enable Developer Mode
+
+Look at the **top-right corner** of the Extensions page.
+
+Turn on:
+
+**Developer mode**
+
+After enabling it, additional buttons will appear.
+
+---
+
+## Step 4 — Load the Extension
+
+Click:
+
+**Load unpacked**
+
+Chrome will open a file-selection window.
+
+Navigate to the folder containing the Faster Distro project.
+
+For example:
+
+```text
+C:\Users\YourName\Desktop\Faster-Distro
+```
+
+Select the **Faster-Distro** folder.
+
+Then click:
+
+**Select Folder**
+
+---
+
+## Step 5 — Confirm Installation
+
+Chrome should now display **Faster Distro** in your list of extensions.
+
+You should see something similar to:
+
+```text
+Faster Distro
+Version 1.0.0
+
+[Remove] [Details]
+```
+
+If the extension appears without errors, the installation was successful.
+
+---
+
+# Pin Faster Distro
+
+To make the extension easier to access:
+
+1. Click the **Extensions** icon  in Chrome's toolbar.
+2. Find **Faster Distro**.
+3. Click the **pin icon** next to it.
+4. Faster Distro will now appear directly in your Chrome toolbar.
+
+---
+
+# Using Faster Distro
+
+After installing the extension:
+
+1. Open Chrome.
+2. Go to the DistroKid website.
+3. Start a new music upload/release.
+4. Open the Faster Distro extension from the Chrome toolbar.
+5. Enter or select the information you want to use.
+6. Run the autofill function.
+7. Faster Distro will populate the supported DistroKid fields.
+8. Review all information before submitting the release.
+
+### Always Review Before Submission
+
+Autofill is intended to save time, but you should **always review the completed DistroKid form manually** before submitting.
+
+Check important information such as:
+
+* Artist name
+* Song title
+* Album/EP title
+* Release date
+* Genre
+* Language
+* Songwriters
+* Producers
+* Explicit-content information
+* Featured artists
+* Audio files
+* Artwork
+* Copyright information
+
+---
+
+# Updating the Extension
+
+If you modify the source code while Developer Mode is enabled:
+
+1. Go to:
+
+```text
+chrome://extensions/
+```
+
+2. Find **Faster Distro**.
+3. Click the **Reload 🔄** button.
+4. Refresh the DistroKid page.
+
+Your changes should now be active.
+
+---
+
+#  Troubleshooting
+
+## Extension does not appear
+
+Make sure you selected the folder containing:
+
+```text
+manifest.json
+```
+
+Chrome needs the folder containing `manifest.json` when using **Load unpacked**.
+
+---
+
+## "Manifest file is missing"
+
+You probably selected the wrong folder.
+
+For example, if your project looks like:
+
+```text
+Faster-Distro/
+└── extension/
+    ├── manifest.json
+    ├── popup.html
+    └── content.js
+```
+
+You need to select:
+
+```text
+Faster-Distro/extension/
+```
+
+rather than the parent `Faster-Distro` folder.
+
+---
+
+## Autofill is not working
+
+Try the following:
+
+1. Make sure Faster Distro is enabled.
+2. Refresh the DistroKid page.
+3. Reload the extension from `chrome://extensions/`.
+4. Reopen the DistroKid upload form.
+5. Check that the extension has permission to access the required page.
+6. Open Chrome Developer Tools and check for JavaScript errors.
+
+---
+
+## Extension shows an error
+
+Open:
+
+```text
+chrome://extensions/
+```
+
+Find Faster Distro and click:
+
+**Errors**
+
+Chrome will display errors generated by the extension.
+
+These errors can help identify problems with the manifest, JavaScript, permissions, or content scripts.
+
+---
+
+# Privacy
+
+Faster Distro should only access information necessary to perform its autofill functionality.
+
+The project should **not collect or transmit sensitive information without the user's knowledge**.
+
+If the extension stores release information locally, that information should preferably be stored using Chrome's local storage APIs.
+
+Users should review the extension's source code and permissions before installing an unpacked extension.
+
+---
+
+# Disclaimer
+
+Faster Distro is an independent third-party project.
+
+It is **not affiliated with, endorsed by, or sponsored by DistroKid**.
+
+Changes to the DistroKid website may cause parts of the extension to stop working. Website form structures, field names, URLs, and page behavior can change over time.
+
+Users are responsible for reviewing their release information before submitting it.
+
+---
+
+# Development
+
+To modify Faster Distro:
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/Faster-Distro.git
+```
+
+### 2. Open the project
+
+```bash
+cd Faster-Distro
+```
+
+### 3. Make your changes
+
+Edit the relevant HTML, CSS, or JavaScript files.
+
+### 4. Load the extension
+
+Go to:
+
+```text
+chrome://extensions/
+```
+
+Enable **Developer mode** and select **Load unpacked**.
+
+### 5. Reload after changes
+
+Click the **Reload 🔄** button for Faster Distro.
+
+---
+
+
+# Contributing
+
+Contributions are welcome.
+
+If you find a bug or have an idea for improving Faster Distro:
+
+1. Fork the repository.
+2. Create a new branch.
+
+```bash
+git checkout -b feature/my-feature
+```
+
+3. Make your changes.
+4. Commit your changes.
+
+```bash
+git commit -m "Add my feature"
+```
+
+5. Push the branch.
+
+```bash
+git push origin feature/my-feature
+```
+
+6. Open a Pull Request.
+
+---
+
+
+##  Faster Distro
+
+**Less typing. Fewer repetitive steps. Faster music distribution.**
+
+Built to make the DistroKid upload workflow faster for independent artists and music managers.
