@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DistroKid AutoFill</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #1f2328;
+      background: #fff;
+      width: 360px;
+      padding: 0;
+    }
+
+    header {
+      background: #1db954;
+      color: #fff;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    header h1 { font-size: 15px; font-weight: 600; letter-spacing: 0.01em; }
+    header span { font-size: 11px; opacity: 0.85; }
+
+    .body { padding: 12px 16px 16px; }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #57606a;
+      margin: 14px 0 6px;
+    }
+    .section-label:first-child { margin-top: 0; }
+
+    label {
+      display: block;
+      font-size: 12px;
+      color: #57606a;
+      margin-bottom: 2px;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 6px 8px;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #1f2328;
+      background: #f6f8fa;
+      margin-bottom: 8px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    input[type="text"]:focus,
+    select:focus { border-color: #1db954; background: #fff; }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      cursor: pointer;
+    }
+    .checkbox-row input[type="checkbox"] { width: 14px; height: 14px; cursor: pointer; accent-color: #1db954; }
+    .checkbox-row span { font-size: 12.5px; color: #1f2328; }
+
+    .radio-group { margin-bottom: 8px; }
+    .radio-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+      cursor: pointer;
+    }
+    .radio-row input[type="radio"] { accent-color: #1db954; cursor: pointer; }
+    .radio-row span { font-size: 12.5px; color: #1f2328; }
+
+    .songwriter-row { display: flex; gap: 6px; margin-bottom: 8px; }
+    .songwriter-row input { margin-bottom: 0; flex: 1; }
+
+    .btn-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    button {
+      flex: 1;
+      padding: 8px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    button:hover { opacity: 0.88; }
+    #saveBtn { background: #1db954; color: #fff; }
+    #fillBtn { background: #0969da; color: #fff; }
+
+    #status {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #1db954;
+      text-align: center;
+      min-height: 16px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #e5e7eb;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>DistroKid AutoFill</h1>
+      <span>Save your defaults, fill forms instantly</span>
+    </div>
+  </header>
+
+  <div class="body">
+
+    <!-- ARTIST -->
+    <div class="section-label">Artist</div>
+    <label for="artistName">Artist / Band Name</label>
+    <input type="text" id="artistName" placeholder="e.g. Axen Monroe" />
+
+    <label for="recordLabel">Record Label</label>
+    <input type="text" id="recordLabel" placeholder="e.g. My Label Records" />
+
+    <!-- METADATA -->
+    <div class="section-label">Release Metadata</div>
+
+    <label for="language">Language</label>
+    <select id="language">
+      <option value="English">English</option>
+      <option value="Spanish">Spanish</option>
+      <option value="French">French</option>
+      <option value="German">German</option>
+      <option value="Portuguese">Portuguese</option>
+      <option value="Japanese">Japanese</option>
+      <option value="Korean">Korean</option>
+      <option value="Chinese">Chinese</option>
+      <option value="Italian">Italian</option>
+      <option value="Hindi">Hindi</option>
+      <option value="Arabic">Arabic</option>
+      <option value="other">Other</option>
+    </select>
+
+    <label for="primaryGenre">Primary Genre</label>
+    <select id="primaryGenre">
+      <option value="">-- Select --</option>
+      <option value="Alternative">Alternative</option>
+      <option value="Blues">Blues</option>
+      <option value="Children's Music">Children's Music</option>
+      <option value="Classical">Classical</option>
+      <option value="Country">Country</option>
+      <option value="Dance">Dance</option>
+      <option value="Electronic">Electronic</option>
+      <option value="Folk">Folk</option>
+      <option value="Hip-Hop/Rap">Hip-Hop/Rap</option>
+      <option value="Holiday">Holiday</option>
+      <option value="Indie Pop">Indie Pop</option>
+      <option value="Jazz">Jazz</option>
+      <option value="Latin">Latin</option>
+      <option value="Metal">Metal</option>
+      <option value="New Age">New Age</option>
+      <option value="Pop">Pop</option>
+      <option value="R&B/Soul">R&B/Soul</option>
+      <option value="Reggae">Reggae</option>
+      <option value="Rock">Rock</option>
+      <option value="Singer/Songwriter">Singer/Songwriter</option>
+      <option value="Soundtrack">Soundtrack</option>
+      <option value="World">World</option>
+    </select>
+
+    <label for="secondaryGenre">Secondary Genre (optional)</label>
+    <select id="secondaryGenre">
+      <option value="">-- None --</option>
+      <option value="Alternative">Alternative</option>
+      <option value="Blues">Blues</option>
+      <option value="Children's Music">Children's Music</option>
+      <option value="Classical">Classical</option>
+      <option value="Country">Country</option>
+      <option value="Dance">Dance</option>
+      <option value="Electronic">Electronic</option>
+      <option value="Folk">Folk</option>
+      <option value="Hip-Hop/Rap">Hip-Hop/Rap</option>
+      <option value="Holiday">Holiday</option>
+      <option value="Indie Pop">Indie Pop</option>
+      <option value="Jazz">Jazz</option>
+      <option value="Latin">Latin</option>
+      <option value="Metal">Metal</option>
+      <option value="New Age">New Age</option>
+      <option value="Pop">Pop</option>
+      <option value="R&B/Soul">R&B/Soul</option>
+      <option value="Reggae">Reggae</option>
+      <option value="Rock">Rock</option>
+      <option value="Singer/Songwriter">Singer/Songwriter</option>
+      <option value="Soundtrack">Soundtrack</option>
+      <option value="World">World</option>
+    </select>
+
+    <!-- SONGWRITER -->
+    <div class="section-label">Default Songwriter</div>
+    <div class="songwriter-row">
+      <input type="text" id="swFirst" placeholder="First name" />
+      <input type="text" id="swMiddle" placeholder="Middle" style="max-width:80px" />
+      <input type="text" id="swLast" placeholder="Last name" />
+    </div>
+
+    <!-- APPLE MUSIC CREDITS -->
+    <div class="section-label">Apple Music Credits</div>
+
+    <label for="performerName">Performer Name</label>
+    <input type="text" id="performerName" placeholder="e.g. Axen Monroe" />
+    <label for="performerRole">Performer Role</label>
+    <select id="performerRole">
+      <option value="">— select —</option>
+      <option value="Singing &amp; vocals">Singing &amp; vocals</option>
+      <option value="Vocal accompaniment">Vocal accompaniment</option>
+      <option value="Background vocals">Background vocals</option>
+      <option value="Bass">Bass</option>
+      <option value="Guitar">Guitar</option>
+      <option value="Drums">Drums</option>
+      <option value="Keyboards">Keyboards</option>
+      <option value="Piano">Piano</option>
+      <option value="Violin">Violin</option>
+      <option value="Special guest">Special guest</option>
+    </select>
+
+    <label for="producerName" style="margin-top:8px;">Producer Name</label>
+    <input type="text" id="producerName" placeholder="e.g. John Smith" />
+    <label for="producerRole">Producer Role</label>
+    <select id="producerRole">
+      <option value="">— select —</option>
+      <option value="Producer">Producer</option>
+      <option value="Co-producer">Co-producer</option>
+      <option value="Executive producer">Executive producer</option>
+      <option value="Beat maker">Beat maker</option>
+      <option value="Co-executive producer">Co-executive producer</option>
+      <option value="Assistant producer">Assistant producer</option>
+    </select>
+
+    <!-- TRACK OPTIONS -->
+    <div class="section-label">Track Defaults</div>
+
+    <div class="radio-group">
+      <label>Explicit Lyrics?</label>
+      <div class="radio-row">
+        <input type="radio" name="explicit" id="explicitNo" value="no" checked />
+        <span>No</span>
+      </div>
+      <div class="radio-row">
+        <input type="radio" name="explicit" id="explicitYes" value="yes" />
+        <span>Yes</span>
+      </div>
+    </div>
+
+    <div class="radio-group">
+      <label>Instrumental?</label>
+      <div class="radio-row">
+        <input type="radio" name="instrumental" id="instrumentalNo" value="no" checked />
+        <span>No — contains lyrics</span>
+      </div>
+      <div class="radio-row">
+        <input type="radio" name="instrumental" id="instrumentalYes" value="yes" />
+        <span>Yes — instrumental</span>
+      </div>
+    </div>
+
+    <div class="radio-group">
+      <label>AI-Generated Music?</label>
+      <div class="radio-row">
+        <input type="radio" name="aiGenerated" id="aiNo" value="no" checked />
+        <span>No</span>
+      </div>
+      <div class="radio-row">
+        <input type="radio" name="aiGenerated" id="aiYes" value="yes" />
+        <span>Yes</span>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="btn-row">
+      <button id="saveBtn">Save Defaults</button>
+      <button id="fillBtn">Fill Form Now</button>
+    </div>
+    <div id="status"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
